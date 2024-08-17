@@ -50,9 +50,22 @@ def channels_table():
     """)
     conn.commit()
     print('Channels table created or updated')
+    
+# Video Duration Table
+def video_duration_table():
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS video_duration_data (
+        id SERIAL PRIMARY KEY,
+        video_id VARCHAR(255) UNIQUE NOT NULL,
+        duration INTERVAL
+    )
+    """)
+    conn.commit()
+    print('Video duration table created or updated')
 
 def ensure_tables_exist():
     comments_table()
     channels_table()
+    video_duration_table()
 
 ensure_tables_exist()
