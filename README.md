@@ -34,14 +34,15 @@ In order to use **MoodyTube** on your machine, you need to follow these steps in
 1. Setup a Google Cloud account (if you don't have one).
 2. Activate the YouTube Data API v3 service
 3. Generate an API Key (OAuth is not necessary for this)
-4. Add your generated API Key in the `.env` file in the field `API_KEY`
+4. Create an `.env` file in the directory with fields for `API_KEY`
+5. Add your generated API Key in the `.env` file in the field `API_KEY`
 
 #### Second Steps - Setup PostgreSQL Database
 
 1. Install PostgreSQL 16.3 (If not already installed)
 2. Create Database using pgAdmin4 (recommended )or other database management platform
 3. Tables are already created in the `db.py`, they will be automatically created once the `main.py` file is running.
-4. Once the database is created, update the `.env` file database fields with your credentials.
+4. Once the database is created, add the `.env` file database fields with your credentials.
 
 #### Third Steps - Install  Dependencies
 
