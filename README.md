@@ -1,4 +1,4 @@
-🎥 MoodyTube v1.0.1 - Documentation
+# 🎥 MoodyTube v1.0.1 - Documentation
 
 *"Tune Into The Feelings Of Your Audience"*
 
