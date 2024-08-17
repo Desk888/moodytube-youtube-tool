@@ -34,7 +34,7 @@ from services import ChannelDataManager, CommentsDataManager, VideosManager
 load_dotenv()
 api_key = os.environ.get('API_KEY')
 youtube = build('youtube', 'v3', developerKey=api_key)
-channel_id = ['UCIE0qJTh0mRbGq880RQh2TA'] # Add channel ID here
+channel_id = ['UCIE0qJTh0mRbGq880RQh2TA'] # Add a single or mulitple channel IDs here
 
 # /////////////////////////////////////////////////////////////////////////////////////////////
             
