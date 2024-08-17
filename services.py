@@ -1,8 +1,15 @@
+# /////////////////////////////////////////////////////////////////////////////////////////////
+
+# --- Libraries ---
 import pandas as pd
 import os
 from psycopg2 import extras
 from db import conn, cursor, ensure_tables_exist
 import isodate
+
+# /////////////////////////////////////////////////////////////////////////////////////////////
+
+# --- Services ---
 
 class ChannelStatsManager():
 
@@ -159,7 +166,7 @@ class VideosDurationManager():
             ])
         
         df = pd.DataFrame(videos, columns=['video_id', 'duration'])
-        file_path = f'./data/videos_data/videos_duration_id_{channel_id}.csv'
+        file_path = f'./data/videos_data/videos_duration_data/videos_duration_id_{channel_id}.csv'
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
         df.to_csv(file_path, index=False)
         print(df)
