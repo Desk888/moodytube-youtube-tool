@@ -28,6 +28,7 @@ import os
 from dotenv import load_dotenv
 from psycopg2 import extras
 from db import conn, cursor, ensure_tables_exist
+import isodate
 
 
 load_dotenv()
@@ -173,6 +174,34 @@ class CommentsManager():
                     text = EXCLUDED.text
                 """, data)
 
+class VideosAverageDuration():
+    def get_videos_average_duration(self, youtube, channel_id):
+        request = youtube.videos().list(
+            part="contentDetails",
+            chart="mostPopular",
+            regionCode="US",
+            maxResults=50,
+        )
+        response = request.execute()
+        videos = []
+        
+        for item in response['items']:
+            duration = isodate.parse_duration(item['contentDetails']['duration'])
+            formatted_duration = str(duration)
+            videos.append([
+                item['id'],
+                formatted_duration
+            ])
+        
+        df = pd.DataFrame(videos, columns=['video_id', 'duration'])
+        file_path = f'./data/videos_data/videos_duration_id_{channel_id}.csv'
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        df.to_csv(file_path, index=False)
+        print(df)
+        
+        # self.store_videos_data(df)
+        return df
+
 # /////////////////////////////////////////////////////////////////////////////////////////////
             
 # --- Main Execution ---
@@ -193,6 +222,10 @@ for channels in channel_id:
     # Get comments data for each video
     for video_id in videos:
         comments_manager.get_comments_data(youtube, video_id)
+    
+    # Get videos average duration
+    videos_average_duration = VideosAverageDuration()
+    videos_average_duration.get_videos_average_duration(youtube, channel_id)
 
 
 conn.close()

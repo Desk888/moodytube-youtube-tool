@@ -1,4 +1,4 @@
-#!/Users/lorenzofilippini/Desktop/youtube_scraper/venv/bin/python
+#!/Users/lorenzofilippini/Desktop/moodytube_v1/venv/bin/python3.10
 # -*- coding: utf-8 -*-
 import re
 import sys
