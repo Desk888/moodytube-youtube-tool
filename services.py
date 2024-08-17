@@ -11,7 +11,7 @@ import isodate
 
 # --- Services ---
 
-class ChannelStatsManager():
+class ChannelDataManager():
 
     def get_channel_statistics(self, youtube, channel_id):
         request = youtube.channels().list(
@@ -61,7 +61,7 @@ class ChannelStatsManager():
                     published_at = EXCLUDED.published_at
                 """, data)
 
-class CommentsManager():
+class CommentsDataManager():
     
     def select_all_videos(self, youtube, channel_id):
         response = youtube.channels().list(
@@ -145,7 +145,7 @@ class CommentsManager():
                     text = EXCLUDED.text
                 """, data)
 
-class VideosDurationManager():
+class VideosManager():
     
     def get_videos_average_duration(self, youtube, channel_id):
         request = youtube.videos().list(
@@ -184,3 +184,7 @@ class VideosDurationManager():
                 ON CONFLICT (video_id) DO UPDATE SET
                     duration = EXCLUDED.duration
                 """, data)
+
+# Implement user location data service
+
+# /////////////////////////////////////////////////////////////////////////////////////////////

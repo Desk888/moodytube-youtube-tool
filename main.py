@@ -25,7 +25,7 @@ from googleapiclient.discovery import build
 import os
 from dotenv import load_dotenv
 from db import conn
-from services import ChannelStatsManager, CommentsManager, VideosDurationManager
+from services import ChannelDataManager, CommentsDataManager, VideosManager
 
 # /////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -41,9 +41,9 @@ channel_id = ['UCIE0qJTh0mRbGq880RQh2TA'] # Add channel ID here
 # --- Main Execution ---
 
 if __name__ == "__main__":
-    channel_stats_manager = ChannelStatsManager()
-    comments_manager = CommentsManager()
-    videos_duration_manager = VideosDurationManager()
+    channel_stats_manager = ChannelDataManager()
+    comments_manager = CommentsDataManager()
+    videos_manager = VideosManager()
 
 for channels in channel_id:
     print(f"Processing data for channel: {channel_id}")
@@ -59,7 +59,7 @@ for channels in channel_id:
         comments_manager.get_comments_data(youtube, video_id)
     
     # Get videos average duration
-    videos_duration_manager.get_videos_average_duration(youtube, channel_id)
+    videos_manager.get_videos_average_duration(youtube, channel_id)
 
 
 conn.close() # Close connection to the database
