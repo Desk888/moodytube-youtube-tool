@@ -68,7 +68,7 @@ ________________________________________________________________________
 
 This tool is simple to use once the installation in your local machine is completed. You simply run the `main.py` file and you will be getting the `.csv` files generated in their dedicated directory folders and your data stored in the database.
 
-## Contribute
+## Contributing:
 
 I am actively looking to collaborate with Machine Learning / AI Engineers to implement the model for sentiment analysis.
 
