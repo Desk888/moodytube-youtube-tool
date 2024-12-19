@@ -68,4 +68,15 @@ ________________________________________________________________________
 
 This tool is simple to use once the installation in your local machine is completed. You simply run the `main.py` file and you will be getting the `.csv` files generated in their dedicated directory folders and your data stored in the database.
 
-#  ⚠️ Note this software only retrieves data, the machine learning model is still in development
+## Contribute
+
+I am actively looking to collaborate with Machine Learning / AI Engineers to implement the model for sentiment analysis.
+
+### 1. Clone the repo
+
+### 2. Develop your feature
+
+### 3. Submit a pull request
+
+If you'd like to contribute, please fork the repository and open a pull request to the `main` branch.
+
